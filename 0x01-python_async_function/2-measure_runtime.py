@@ -1,4 +1,4 @@
-#!/usr/bin/env/python3
+#!/usr/bin/env python3
 """ From the previous file, import wait_n function """
 import asyncio
 import time
