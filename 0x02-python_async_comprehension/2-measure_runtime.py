@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-""" From the previouse file, import wait_n 
+""" From the previouse file, import wait_n
 into 2-measure_runtime.py """
 import asyncio
 import time
