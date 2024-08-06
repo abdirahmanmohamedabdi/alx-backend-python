@@ -1,15 +1,14 @@
 #!/usr/bin/env python3
-""" From the previouse file, import wait_n
-into 2-measure_runtime.py """
-import asyncio
+""" Defines a concurrency of 4 asynchronos opertations """
 import time
-wait_n = __import__('1-concurrent_coroutines').wait_n
+import asyncio
+
+async_comprehension = __import__('1-async_comprehension').async_comprehension
 
 
-def measure_time(n: int, max_delay: int) -> float:
-    """ Measure the total execution time """
-    start_time = time.time()
-    asyncio.run(wait_n(n, max_delay))
-    end_time = time.time()
-    total_time = end_time - start_time
-    return total_time / n
+async def measure_runtime() -> float:
+    """ Measures the runtime of async_comprehension """
+    start: float = time.perf_counter()
+    await asyncio.gather(*(async_comprehension() for _ in range(4)))
+    end: float = time.perf_counter()
+    return (end - start)

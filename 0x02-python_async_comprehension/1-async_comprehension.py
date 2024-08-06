@@ -1,17 +1,11 @@
 #!/usr/bin/env python3
-""" import wait_random from the preivious python file """
+""" Defines an async comprehension """
 import asyncio
 from typing import List
-wait_random = __import__('0-basic_async_syntax').wait_random
+
+async_generator = __import__('0-async_generator').async_generator
 
 
-async def wait_n(n: int, max_delay: int) -> List[float]:
-    """ return the list of all the delays """
-    delays: List[float] = []
-    all_delays: List[float] = []
-    for i in range(n):
-        delays.append(wait_random(max_delay))
-    for delay in asyncio.as_completed(delays):
-        earliest_result = await delay
-        all_delays.append(earliest_result)
-    return all_delays
+async def async_comprehension() -> List[float]:
+    """ Collect 10 random numbers using an async generator """
+    return [n async for n in async_generator()]
