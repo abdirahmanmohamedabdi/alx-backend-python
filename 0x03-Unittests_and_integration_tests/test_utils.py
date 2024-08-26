@@ -18,8 +18,8 @@ class TestAccessNestedMap(unittest.TestCase):
         ({"a": {"b": 2}}, ("a",), {"b": 2}),
         ({"a": {"b": 2}}, ("a", "b"), 2)
     ])
-    def test_access_nested_map(self, nested_map:
-                                Mapping, path: Sequence, expected: int) -> None:
+    def test_access_nested_map(self, nested_map:Mapping,
+                               path: Sequence, expected: int) -> None:
           """Test access_nested_map function
           """
           response = access_nested_map(nested_map, path)
